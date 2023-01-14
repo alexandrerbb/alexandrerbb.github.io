@@ -1,0 +1,223 @@
+$gray : rgba(124, 124, 124, 0.125);
+$navbar-bg : rgba(0, 0, 0, 0.8);
+
+:root {
+    --background-color: #ffffff;
+    --background-accent: 230, 230, 230, 1;
+    --text-color: #000000;
+    --text-muted: #0c0c0c;
+    --gray: 0, 0, 0, 0.175;
+    --gray2: 65, 65, 65, .375;
+    --gray3: 65, 65, 65, .5;
+    --border-color: 0, 0, 0, 0.125;
+    --blue: #06c;
+    --link-weight: 500;
+    --filter-invert: 0;
+}
+
+[data-theme="dark"] {
+    --background-color: rgb(24, 24, 25);
+    --background-accent: 18, 18, 18, 1;
+    --text-color: #ffffff;
+    --text-muted: #bdbdbd;
+    --gray: 255, 255, 255, 0.125;
+    --gray2: 165, 165, 165, 0.175;
+    --gray3: 165, 165, 165, 0.25;
+    --border-color: 255, 255, 255, 0.0675;
+    --blue: #34a0ff;
+    --link-weight: 300;
+    --filter-invert: 1;
+}
+
+* {
+    transition-property: color, border;
+    transition-duration: 50ms;
+    transition-timing-function: ease-out;
+}
+
+$sm : .875rem;
+
+body {
+    font-family: 'Switzer', sans-serif;
+    letter-spacing: .0625em;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 500;
+    background-color: var(--background-color);
+    background: linear-gradient(180deg,
+            rgba(var(--background-accent)) 10rem,
+            var(--background-color)15rem,
+            var(--background-color)100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    color: var(--text-color);
+}
+
+body::-webkit-scrollbar-track {
+    background: linear-gradient(180deg,
+            $navbar-bg 5.125rem,
+            $navbar-bg 5.188rem,
+            var(--background-color) 5.188rem,
+            var(--background-color)100%);
+
+}
+
+body::-webkit-scrollbar {
+    width: .5rem;
+    background-color: (var(--background-color));
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    background-color: rgba(var(--gray2));
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(var(--gray3));
+}
+
+aa-navigation {
+    height: 5.125rem;
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    color: #ffffff;
+    background: $navbar-bg;
+    -webkit-backdrop-filter: saturate(180%) blur(.75rem);
+    backdrop-filter: saturate(180%) blur(.75rem);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px .125rem .375rem;
+    border-bottom: 1px solid rgba(var(--border-color));
+    user-select: none;
+}
+
+.navbar-wrapper {
+    height: 5.125rem;
+    width: 100%;
+}
+
+.content {
+    max-width: 1280px;
+    width: 100%;
+    padding: 5rem 0 0;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+section {
+    padding-bottom: 2rem;
+}
+
+a {
+    color: var(--blue);
+    text-decoration: none;
+    transition: all 100ms ease-in-out;
+    font-size: $sm;
+    letter-spacing: .375px;
+    vertical-align: center;
+    font-weight: 400;
+}
+
+a:hover {
+    color: var(--blue);
+}
+
+a>feather-icon {
+    margin-right: .25rem;
+    width: $sm;
+    height: $sm;
+}
+
+aa-whoami {
+    padding: 1rem 0;
+    display: block;
+}
+
+aa-techs {
+    margin: 1rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+aa-portfolio {
+    display: flex;
+    margin: 1rem 0 0;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 767.98px) {
+    aa-portfolio {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    aa-navigation {
+        height: auto;
+        position: relative;
+    }
+
+    aa-techs {
+        justify-content: start;
+    }
+
+    .content-wrapper {
+        padding: 0 .75rem;
+    }
+}
+
+footer {
+    background: linear-gradient(180deg, var(--background-color)0%, rgba(var(--background-accent)) 5rem, rgba(var(--background-accent)) 100%);
+    font-weight: 400;
+    font-size: $sm;
+    padding: 3rem 2rem;
+    letter-spacing: .25px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0
+    }
+
+    35% {
+        opacity: 0
+    }
+
+    65% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+.whoami {
+    font-family: "Red Hat Mono", monospace;
+    font-size: 1.25rem;
+    letter-spacing: 0.25rem;
+}
+
+.underscore {
+    display: inline-block;
+    width: .675rem;
+    border-bottom: 2px solid var(--text-color);
+    height: 1rem;
+    background-color: $gray;
+    margin-left: .25rem;
+    animation: fade ease-in-out 600ms infinite alternate;
+}
+
+.muted {
+    color: var(--text-muted)
+}
